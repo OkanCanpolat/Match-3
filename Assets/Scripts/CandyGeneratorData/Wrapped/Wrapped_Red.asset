@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248243685f26ab54f84cf5e8daeb493b, type: 3}
+  m_Name: Wrapped_Red
+  m_EditorClassIdentifier: 
+  MatchCount: 6
+  MatchType: 2
+  Type: 1
+  Candy: {fileID: 1546728865192717419, guid: 3248ad123abe83b4e83a19c37df3bd81, type: 3}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8c2ac381f169945a49fd83f100c095, type: 3}
+  m_Name: DestroyGreen
+  m_EditorClassIdentifier: 
+  GoalSprite: {fileID: 21300000, guid: 917d3e8eb37f57f4f998d2216e4277e5, type: 3}
+  RequiredAmount: 12
+  Type: 4
