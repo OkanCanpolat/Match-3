@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public enum MatchDirection
 {
@@ -6,25 +9,19 @@ public enum MatchDirection
 }
 public class MatchCounter : MonoBehaviour
 {
-    public static MatchCounter Instance;
     [SerializeField] private CandyProvider candyProvider;
     private const int minimumMatchToGetNewCandy = 4;
+    private Board board;
+    private List<CandyPrefabInstantiateDTO> multiMatchCandies = new List<CandyPrefabInstantiateDTO>();
 
-    private void Awake()
+    public List<CandyPrefabInstantiateDTO> MultiMatchCandies => multiMatchCandies;
+
+    [Inject]
+    public void Construct(Board board)
     {
-        #region Singleton
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        #endregion
-
+        this.board = board;
     }
+   
     public void CountMatches(MatchesDTO matches)
     {
         bool anyGeneration = ControlHorizontalMatchGeneration(matches);
@@ -126,7 +123,10 @@ public class MatchCounter : MonoBehaviour
     {
         if (result != null)
         {
-            Board.Instance.AddMultiMatchCandy(result, swipedCandy.Column, swipedCandy.Row);
+            Candy matchedCandy = board.Columns[swipedCandy.CandyProperties.Column].rows[swipedCandy.CandyProperties.Row].GetComponent<Candy>();
+            matchedCandy.Type = CandyType.Destroyed;
+            CandyPrefabInstantiateDTO createdCandy = new CandyPrefabInstantiateDTO(result, swipedCandy.CandyProperties.Column, swipedCandy.CandyProperties.Row);
+            multiMatchCandies.Add(createdCandy);
         }
     }
     private bool AreCandiesNotNull(params Candy[] candies)

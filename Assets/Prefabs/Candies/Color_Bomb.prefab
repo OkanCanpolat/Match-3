@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4391652798885950146}
   - component: {fileID: 7407730005490259433}
   - component: {fileID: 5078781170358134974}
+  - component: {fileID: 246890474990085776}
   m_Layer: 0
   m_Name: Color_Bomb
   m_TagString: Untagged
@@ -124,12 +125,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01b82ba7675fb247aa3d0bfc27058e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Row: 0
-  Column: 0
-  previousRow: 0
-  previousColumn: 0
   isMatched: 0
-  otherCandy: {fileID: 0}
   Type: 6
   EventType: 24
   destroyParticlePrefab: {fileID: 2097353466163735429, guid: 5df491700b2c3df4b9151307dd29d182, type: 3}
+--- !u!114 &246890474990085776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113769245348127679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0

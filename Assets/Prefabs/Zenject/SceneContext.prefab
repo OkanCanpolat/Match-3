@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2977462152372183443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2977462152372183454}
+  - component: {fileID: 2977462152372183441}
+  - component: {fileID: 2977462152372183440}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2977462152372183454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977462152372183443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2977462152372183441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977462152372183443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 2977462152372183440}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!114 &2977462152372183440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977462152372183443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaafec3fac772747936b905969dd78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CandySwipeSettings: {fileID: 11400000, guid: 3cd309f269f5c164790688a30098c18b, type: 2}
+  Board: {fileID: 0}
+  MatchCounter: {fileID: 0}
+  candiesToSpawn:
+  - {fileID: 2038045500059526077, guid: 139c45c64bbcb344993ddc33e78e3d7e, type: 3}
+  - {fileID: 300075194842252766, guid: a1d023de095108d4a92ec563e54a3308, type: 3}
+  - {fileID: 2117697881664575414, guid: 3f9c5cc192f4f6941b2f43a77b8194f7, type: 3}
+  - {fileID: 4206876120744913196, guid: de179ed096018624f9a1753482742d90, type: 3}
+  - {fileID: 1248616635381227947, guid: e60fdc83dd4f31c478e1f222bb29140d, type: 3}
+  - {fileID: 2348516414177090253, guid: 366c95550662bad439063855b2a48bb8, type: 3}
+  spawnOffset: 2
+  Type: 1
+  basicTile: {fileID: 30969853177398476, guid: 121b07ad4723b854ca2c24a85928f8c3, type: 3}
+  chocolateTile: {fileID: 9049842535622820012, guid: ca965fc39e797c640909dd14d252becc, type: 3}

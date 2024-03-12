@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4209202801980008912}
   - component: {fileID: 6941687940730146555}
   - component: {fileID: 6695916201545339847}
+  - component: {fileID: -4901786241753071580}
   m_Layer: 0
   m_Name: Candy_Wrapped_Blue
   m_TagString: Untagged
@@ -133,3 +134,16 @@ MonoBehaviour:
   Type: 0
   EventType: 18
   destroyParticlePrefab: {fileID: 2097353466163735429, guid: 5df491700b2c3df4b9151307dd29d182, type: 3}
+--- !u!114 &-4901786241753071580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003471520213792941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class ScorCounter : MonoBehaviour
 {
@@ -9,15 +10,20 @@ public class ScorCounter : MonoBehaviour
     [SerializeField] private int maxScore;
     [SerializeField] private int scoreToOneStar;
     [SerializeField] private int maxStarCount;
+    private Board board;
     private int currentScore;
     private int currentStarCount = 0;
     public int CurrentStartCount { get => currentStarCount; }
     public int CurrentScore { get => currentScore; }
 
-
+    [Inject]
+    public void Construct(Board board)
+    {
+        this.board = board;
+    }
     private void Start()
     {
-        Board.Instance.OnDestroy += OnCandyDestroyed;
+        board.OnDestroy += OnCandyDestroyed;
         OnScoreChanged?.Invoke(currentScore);
     }
     private void OnCandyDestroyed()

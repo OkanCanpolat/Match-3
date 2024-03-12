@@ -1,8 +1,11 @@
+using System;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
+using Zenject;
 
-public class TimeLoseCondition : LoseCondition
+public class TimeLoseCondition : LoseConditionBase
 {
     public TimeLoseCondition(int counter, TMP_Text counterText, TMP_Text counterNameText) : base(counter, counterText, counterNameText)
     {
@@ -19,6 +22,7 @@ public class TimeLoseCondition : LoseCondition
     {
         while (counter > 0 && GameManager.Instance.GameState == GameState.Continueu)
         {
+            if (Application.isPlaying == false) return;
             await Task.Delay(1000);
             DecreaseTime();
             ControlCounter();

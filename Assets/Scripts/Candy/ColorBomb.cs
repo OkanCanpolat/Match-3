@@ -3,24 +3,12 @@ using UnityEngine;
 
 public class ColorBomb : Candy
 {
-    public override void OnMouseDown()
-    {
-        base.OnMouseDown();
-    }
-    public override void OnMouseUp()
-    {
-        base.OnMouseUp();
-    }
     public override void OnMatched()
     {
         SoundManager.Instance.PlayCandyDestroySound();
         EventBus.Publish(EventType);
-        Board.Instance.DestroyCandyAt(Column, Row);
+        board.DestroyCandyAt(CandyProperties.Column, CandyProperties.Row);
         Instantiate(destroyParticlePrefab, transform.position, Quaternion.identity);
-    }
-    public override bool FindMatch(bool controlMatchCount = true)
-    {
-        return false;
     }
     public override void Swap()
     {
@@ -28,14 +16,14 @@ public class ColorBomb : Candy
     }
     private IEnumerator SwapCo()
     {
-        Candy other = otherCandy.GetComponent<Candy>();
+        Candy other = CandyProperties.OtherCandy.GetComponent<Candy>();
         other.MovePiece();
 
         yield return StartCoroutine(MovePieceCo());
 
         isMatched = true;
-        Board.Instance.CandySwapped();
-        Board.Instance.MatchAllCandiesWithTypeOf(other.Type);
-        Board.Instance.ControlMatches();
+        board.OnCandySwap();
+        matchMaker.MatchAllCandiesWithTypeOf(other.Type);
+        board.ControlMatches();
     }
 }

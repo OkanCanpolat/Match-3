@@ -1,7 +1,7 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public enum LoseConditionType
 {
@@ -10,22 +10,21 @@ public enum LoseConditionType
 public class LoseContionController : MonoBehaviour
 {
     public event Action OnLose;
-    [SerializeField] private LoseConditionType conditionType;
     [SerializeField] private TMP_Text counterNameText;
     [SerializeField] private TMP_Text counterText;
     [SerializeField] private int counter;
-    private IDictionary<LoseConditionType, LoseCondition> conditionMap = new Dictionary<LoseConditionType, LoseCondition>();
-    private LoseCondition timeLoseCondition;
-    private LoseCondition moveLoseCondition;
+    private LoseConditionBase currentLoseCondition;
+    private LoseConditionBase.Factory factory;
 
+    [Inject]
+    public void Construct(LoseConditionBase.Factory factory)
+    {
+        this.factory = factory;
+    }
     private void Awake()
     {
-        timeLoseCondition = new TimeLoseCondition(counter, counterText, counterNameText);
-        moveLoseCondition = new MoveLoseCondition(counter, counterText, counterNameText);
-        conditionMap.Add(LoseConditionType.Time, timeLoseCondition);
-        conditionMap.Add(LoseConditionType.Move, moveLoseCondition);
+        currentLoseCondition = factory.Create(counter, counterText, counterNameText);
     }
-
     public void Lose()
     {
         OnLose?.Invoke();
@@ -34,10 +33,8 @@ public class LoseContionController : MonoBehaviour
     {
         InitLoseCondition();
     }
-
     private void InitLoseCondition()
     {
-        LoseCondition condition = conditionMap[conditionType];
-        condition.Init(this);
+        currentLoseCondition.Init(this);
     }
 }

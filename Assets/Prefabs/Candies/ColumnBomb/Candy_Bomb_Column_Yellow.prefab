@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9122926201129727653}
   - component: {fileID: 6759048873293806196}
   - component: {fileID: 1212472127283561043}
+  - component: {fileID: 2775546130063024197}
   m_Layer: 0
   m_Name: Candy_Bomb_Column_Yellow
   m_TagString: Untagged
@@ -133,3 +134,16 @@ MonoBehaviour:
   Type: 2
   EventType: 17
   destroyParticlePrefab: {fileID: 2097353466163735429, guid: 5df491700b2c3df4b9151307dd29d182, type: 3}
+--- !u!114 &2775546130063024197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803712645457694232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0

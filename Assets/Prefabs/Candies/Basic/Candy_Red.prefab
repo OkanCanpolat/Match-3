@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3360945815992533487}
   - component: {fileID: 5060705574732859349}
   - component: {fileID: -5074880459514708447}
+  - component: {fileID: 3781893154493224471}
   m_Layer: 0
   m_Name: Candy_Red
   m_TagString: Untagged
@@ -133,3 +134,16 @@ MonoBehaviour:
   Type: 1
   EventType: 2
   destroyParticlePrefab: {fileID: 2097353466163735429, guid: 5df491700b2c3df4b9151307dd29d182, type: 3}
+--- !u!114 &3781893154493224471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248616635381227947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0

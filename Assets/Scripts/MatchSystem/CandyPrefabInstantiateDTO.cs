@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CandyPrefabInstantiateDTO 
+public struct CandyPrefabInstantiateDTO 
 {
     public GameObject Candy;
     public int Column;

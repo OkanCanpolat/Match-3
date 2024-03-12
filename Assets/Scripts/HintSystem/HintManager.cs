@@ -1,33 +1,26 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class HintManager : MonoBehaviour
 {
-    public static HintManager Instance;
     [SerializeField] private float timeBeetwenHintControls;
     [SerializeField] private GameObject rightHintParticle;
     [SerializeField] private GameObject upHintParticle;
     private GameObject hintParticle;
     private bool isParticleActive;
     private float elapsedTime;
-    private void Awake()
+    private Board board;
+
+    [Inject]
+    public void Construct(Board board)
     {
-        #region Singleton
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        #endregion
+        this.board = board;
     }
 
     private void Start()
     {
-        Board.Instance.OnSwap += ResetTimer;
+        board.OnSwap += ResetTimer;
         StartCoroutine(ControlHintCo());
     }
     private void ResetTimer()
@@ -52,9 +45,9 @@ public class HintManager : MonoBehaviour
     }
     private void ControlHint()
     {
-        for (int i = 0; i < Board.Instance.Width; i++)
+        for (int i = 0; i < board.Width; i++)
         {
-            for (int j = 0; j < Board.Instance.Height; j++)
+            for (int j = 0; j < board.Height; j++)
             {
                 if (ControlRightHint(i, j) || ControlUpHint(i, j))
                 {
@@ -67,13 +60,13 @@ public class HintManager : MonoBehaviour
     {
         bool result = false;
 
-        if (column < Board.Instance.Width - 1 && Board.Instance.IsLegalMovementTile(column + 1, row)
-            && Board.Instance.IsLegalMovementTile(column, row))
+        if (column < board.Width - 1 && board.IsLegalMovementTile(column + 1, row)
+            && board.IsLegalMovementTile(column, row))
         {
-            Candy source = Board.Instance.Columns[column].rows[row].GetComponent<Candy>();
-            Candy right = Board.Instance.Columns[column + 1].rows[row].GetComponent<Candy>();
+            Candy source = board.Columns[column].rows[row].GetComponent<Candy>();
+            Candy right = board.Columns[column + 1].rows[row].GetComponent<Candy>();
 
-            Board.Instance.SwitchPieces(column, row, Vector2.right);
+            board.SwitchPieces(column, row, Vector2.right);
 
             bool sourceMatch = source.FindMatch(false);
             bool rightMatch = right.FindMatch(false);
@@ -85,7 +78,7 @@ public class HintManager : MonoBehaviour
                 isParticleActive = true;
             }
 
-            Board.Instance.SwitchPieces(column, row, Vector2.right);
+            board.SwitchPieces(column, row, Vector2.right);
         }
 
         return result;
@@ -94,12 +87,12 @@ public class HintManager : MonoBehaviour
     {
         bool result = false;
 
-        if (row < Board.Instance.Height - 1 && Board.Instance.IsLegalMovementTile(column, row)
-            && Board.Instance.IsLegalMovementTile(column, row + 1))
+        if (row < board.Height - 1 && board.IsLegalMovementTile(column, row)
+            && board.IsLegalMovementTile(column, row + 1))
         {
-            Candy source = Board.Instance.Columns[column].rows[row].GetComponent<Candy>();
-            Candy up = Board.Instance.Columns[column].rows[row + 1].GetComponent<Candy>();
-            Board.Instance.SwitchPieces(column, row, Vector2.up);
+            Candy source = board.Columns[column].rows[row].GetComponent<Candy>();
+            Candy up = board.Columns[column].rows[row + 1].GetComponent<Candy>();
+            board.SwitchPieces(column, row, Vector2.up);
             bool sourceMatch = source.FindMatch(false);
             bool rightMatch = up.FindMatch(false);
 
@@ -110,7 +103,7 @@ public class HintManager : MonoBehaviour
                 isParticleActive = true;
             }
 
-            Board.Instance.SwitchPieces(column, row, Vector2.up);
+            board.SwitchPieces(column, row, Vector2.up);
         }
 
         return result;

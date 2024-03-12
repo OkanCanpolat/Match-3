@@ -1,17 +1,25 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
 
-public class MoveLoseCondition : LoseCondition
+public class MoveLoseCondition : LoseConditionBase
 {
+    Board board;
     public MoveLoseCondition(int counter, TMP_Text counterText, TMP_Text counterNameText) : base(counter, counterText, counterNameText)
     {
         counterName = "MOVE";
     }
 
+    [Inject]
+    public void Construct(Board board)
+    {
+        this.board = board;
+    }
+
     public override void Init(LoseContionController controller)
     {
         counterNameText.text = counterName;
-        Board.Instance.OnCandySwapped += OnCandySwap;
+        board.OnCandySwapped += OnCandySwap;
         this.controller = controller;
         counterText.text = counter.ToString();
     }
@@ -26,7 +34,7 @@ public class MoveLoseCondition : LoseCondition
     {
         if (counter <= 0)
         {
-            Board.Instance.OnCandySwapped -= OnCandySwap;
+            board.OnCandySwapped -= OnCandySwap;
             controller.Lose();
         }
     }
